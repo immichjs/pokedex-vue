@@ -2,8 +2,8 @@
     <div class="card" @click="changeImage">
         <img class="pokemon-image" :src="currentImage">
         <div class="container">
-        <h1>{{ name | upper }}</h1>
-        <p>{{ pokemon.type }}</p> 
+            <h1>{{ name | upper }}</h1>
+            <p>{{ pokemon.type }}</p> 
         </div>
     </div>
 </template>
@@ -21,6 +21,7 @@ export default {
             this.currentImage = this.pokemon.front
         })
     },
+
     data() {
         return {
             isFront: true,
@@ -32,16 +33,19 @@ export default {
             }
         }
     },
+
     props: {
         name: String,
         url: String
     },
+
     filters: {
         upper(value) {
             let newName = value[0].toUpperCase() + value.slice(1)
             return newName
         }
     },
+
     methods: {
         changeImage() {
             if (this.isFront) {
@@ -52,7 +56,7 @@ export default {
                 this.currentImage = this.pokemon.front
             }
         }
-    },
+    }
 }
 </script>
 
@@ -73,6 +77,6 @@ export default {
     }
     
     .pokemon-image {
-        @apply w-full
+        @apply w-full;
     }
 </style>

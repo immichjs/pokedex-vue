@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <header class="header">
-      <img src="./assets/pokedex-logo.webp" alt="">
+      <img src="../public/pokedex-icon.webp">
       <input class="search" type="text" placeholder="Buscar pokemon" v-model="search">
     </header>
-    <hr>
     <div class="container-box">
       <div v-for="(poke) in searchResult" :key="poke.url">
         <Pokemon :name="poke.name" :url="poke.url"/>
@@ -20,6 +19,7 @@ import Pokemon from './components/Pokemon'
 
 export default {
   name: 'App',
+
   data() {
     return {
       pokemons: [],
@@ -37,6 +37,7 @@ export default {
   components: {
     Pokemon
   },
+
   computed: {
     searchResult() {
       if (this.search == '' || this.search == ' ') {
@@ -51,15 +52,16 @@ export default {
 
 <style lang="postcss" scoped>
   .header {
-    @apply grid justify-center flex-wrap;
+    @apply flex justify-center flex-wrap gap-10 bg-gray-700 mb-3;
+    box-shadow: 0 2px 5px -5px rgba(0, 0, 0, .2);
   }
 
   .header img {
-    @apply w-40 justify-self-center mt-3;
+    @apply w-20 justify-self-center my-3;
   }
 
   .search {
-    @apply p-3.5 rounded-md border w-80 my-3 flex text-center;
+    @apply p-3.5 rounded-md border w-80 my-3 flex text-center h-12 self-center;
     outline: none;
   }
 
@@ -72,6 +74,6 @@ export default {
   }
 
   .container-box {
-    @apply flex flex-wrap mx-40 justify-center;
+    @apply flex flex-wrap mx-40 justify-center mb-3;
   }
 </style>
