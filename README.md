@@ -1,24 +1,13 @@
-# pokedex-vue
+# Pokedex Vue
 
-## Project setup
-```
-npm install
-```
+![](https://i.imgur.com/9IHEqio.png)
 
-### Compiles and hot-reloads for development
+### Inicializar o servidor com:
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+https://i.imgur.com/9IHEqio.png
