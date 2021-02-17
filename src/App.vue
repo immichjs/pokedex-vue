@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/pokedex-logo.webp" alt="">
-    <input type="text" placeholder="Buscar pokemon" v-model="search">
-    <div v-for="(poke, index) in searchResult" :key="poke.url">
-      <Pokemon :name="poke.name" :url="poke.url" :id="index + 1"/>
+    <header class="header">
+      <img src="./assets/pokedex-logo.webp" alt="">
+      <input class="search" type="text" placeholder="Buscar pokemon" v-model="search">
+    </header>
+    <hr>
+    <div class="container-box">
+      <div v-for="(poke) in searchResult" :key="poke.url">
+        <Pokemon :name="poke.name" :url="poke.url"/>
+      </div>
     </div>
   </div>
 </template>
@@ -44,6 +49,29 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
+  .header {
+    @apply grid justify-center flex-wrap;
+  }
 
+  .header img {
+    @apply w-40 justify-self-center mt-3;
+  }
+
+  .search {
+    @apply p-3.5 rounded-md border w-80 my-3 flex text-center;
+    outline: none;
+  }
+
+  .search::placeholder {
+    @apply font-medium;
+  }
+
+  hr {
+    @apply my-2;
+  }
+
+  .container-box {
+    @apply flex flex-wrap mx-40 justify-center;
+  }
 </style>

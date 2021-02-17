@@ -2,7 +2,7 @@
     <div class="card" @click="changeImage">
         <img class="pokemon-image" :src="currentImage">
         <div class="container">
-        <h1>{{ id }} - {{ name | upper }}</h1>
+        <h1>{{ name | upper }}</h1>
         <p>{{ pokemon.type }}</p> 
         </div>
     </div>
@@ -33,7 +33,6 @@ export default {
         }
     },
     props: {
-        id: Number,
         name: String,
         url: String
     },
@@ -57,24 +56,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
     .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-        width: 10%;
-        cursor: pointer;
-        box-sizing: border-box;
+        @apply cursor-pointer box-border duration-300 w-40 border m-1 rounded;
+        box-shadow: 0 0 10px -8px rgba(0, 0, 0, .2);
     }
 
     .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        @apply border-yellow-400 transform scale-105;
+        box-shadow: 0 0 10px -2px rgba(0, 0, 0, .2);
     }
 
     .container {
-    padding: 2px 16px;
+        @apply bg-gray-100 text-center text-gray-700 font-medium py-1 px-4;
+        box-shadow: 0 -3px 8px -5px rgba(0, 0, 0, .2);
     }
     
     .pokemon-image {
-        width: 100%;
+        @apply w-full
     }
 </style>
