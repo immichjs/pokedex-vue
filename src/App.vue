@@ -69,12 +69,8 @@ export default {
     @apply font-medium;
   }
 
-  hr {
-    @apply my-2;
-  }
-
   .container-box {
-    @apply flex flex-wrap mx-40 justify-center mb-3;
+    @apply flex flex-wrap mx-20 justify-center mb-3;
   }
 
   @media only screen and (max-width: 1024px) {
