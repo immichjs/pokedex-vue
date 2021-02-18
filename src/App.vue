@@ -24,6 +24,7 @@ export default {
     return {
       pokemons: [],
       search: '',
+      // fadeIn: false
     }
   },
 
@@ -37,6 +38,15 @@ export default {
   components: {
     Pokemon
   },
+
+  // methods: {
+  //   fadeInClass($event) {
+  //     console.log($event)
+  //     setTimeout(function () {
+  //       this.fadeIn = !this.fadeIn
+  //     }, 800);
+  //   },
+  // },
 
   computed: {
     searchResult() {

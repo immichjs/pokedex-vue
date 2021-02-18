@@ -19,7 +19,7 @@ export default {
             this.pokemon.front = response.data.sprites.front_default
             this.pokemon.back = response.data.sprites.back_default
             this.currentImage = this.pokemon.front
-        })
+        }) 
     },
 
     data() {
