@@ -73,10 +73,15 @@ export default {
 
     .container {
         @apply bg-gray-100 text-center text-gray-700 font-medium py-1 px-4;
-        box-shadow: 0 -3px 8px -5px rgba(0, 0, 0, .2);
     }
     
     .pokemon-image {
         @apply w-full;
+    }
+
+    @media only screen and (max-width: 415px) {
+        .card {
+            @apply w-32;
+        }
     }
 </style>

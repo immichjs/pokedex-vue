@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
   .header {
     @apply flex justify-center flex-wrap gap-10 bg-gray-700 mb-3;
     box-shadow: 0 2px 5px -5px rgba(0, 0, 0, .2);
@@ -61,7 +61,7 @@ export default {
   }
 
   .search {
-    @apply p-3.5 rounded-md border w-80 my-3 flex text-center h-12 self-center;
+    @apply p-3.5 rounded-md border w-80 my-3 flex text-center self-center;
     outline: none;
   }
 
@@ -75,5 +75,43 @@ export default {
 
   .container-box {
     @apply flex flex-wrap mx-40 justify-center mb-3;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .container-box {
+      @apply mx-9;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .header {
+      @apply gap-3;
+    }
+    
+    .header img {
+      @apply w-16;
+    }
+
+    .search {
+      @apply w-60;
+    }
+
+    .container-box {
+      @apply mx-0;
+    }
+  }
+  
+  @media only screen and (max-width: 315px) {
+    .header img, .search {
+      @apply my-0;
+    }
+
+    .header img {
+      @apply mt-3;
+    }
+
+    .search {
+      @apply mb-3;
+    }
   }
 </style>
