@@ -4,6 +4,7 @@
       <img src="../public/pokedex-icon.webp">
       <input class="search" type="text" placeholder="Buscar pokemon" v-model="search">
     </header>
+
     <div class="container-box">
       <div v-for="(poke) in searchResult" :key="poke.url">
         <Pokemon :name="poke.name" :url="poke.url"/>
@@ -13,7 +14,6 @@
 </template>
 
 <script>
-
 import axios from 'axios'
 import Pokemon from './components/Pokemon'
 
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       pokemons: [],
-      search: ''
+      search: '',
     }
   },
 
