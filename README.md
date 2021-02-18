@@ -14,6 +14,6 @@ Após esses passos é só entrar no navegador com ip gerado pra você pelo termi
 >Mantenha aberto o terminal após o `npm run serve` se não o servidor será fechado e a página não será visualizada
 
 ### Tecnologias
-- Vuejs
-- Tailwindcss
+- VueJS
+- Tailwind CSS
 - Axios
