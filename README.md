@@ -1,24 +1,19 @@
-# pokedex-vue
+# Pokedex Vue
 
-## Project setup
-```
-npm install
-```
+![](https://i.imgur.com/9IHEqio.png)
 
-### Compiles and hot-reloads for development
+### Inicializar o projeto na sua maquina local
 ```
+git clone https://github.com/immichjs/pokedex-vue.git
+cd pokedex-vue
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Após esses passos é só entrar no navegador com ip gerado pra você pelo terminal, geralmente é localhost:8080.
 
-### Lints and fixes files
-```
-npm run lint
-```
+>Mantenha aberto o terminal após o `npm run serve` se não o servidor será fechado e a página não será visualizada
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Tecnologias
+- VueJS
+- Tailwind CSS
+- Axios
