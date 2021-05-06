@@ -6,6 +6,7 @@
 ```
 git clone https://github.com/immichjs/pokedex-vue.git
 cd pokedex-vue
+npm i
 npm run serve
 ```
 
