@@ -21,13 +21,13 @@
 <script>
 import axios from 'axios';
 import Pokemon from './components/Pokemon';
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
 
   data() {
     return {
-      pokemons: [],
       search: '',
     };
   },
@@ -37,7 +37,7 @@ export default {
       .get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
       .then((response) => {
         console.log('Lista de pokemons concluído');
-        this.pokemons = response.data.results;
+        this.$store.state.pokemons = response.data.results;
       });
   },
 
@@ -46,11 +46,14 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      pokemons: 'pokemons'
+    }),
     searchResult() {
       if (this.search == '' || this.search == ' ') {
-        return this.pokemons;
+        return this.$store.state.pokemons;
       } else {
-        return this.pokemons.filter((pokemon) =>
+        return this.$store.state.pokemons.filter((pokemon) =>
           pokemon.name.match(this.search)
         );
       }
