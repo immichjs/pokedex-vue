@@ -3,7 +3,7 @@
     <img class="pokemon-image" :src="currentImage" />
     <div class="container">
       <h1>{{ name | upper }}</h1>
-      <p>{{ pokemon.type }}</p>
+      <span class="text-purple-700">{{ pokemon.type | upper }}</span>
     </div>
   </div>
 </template>

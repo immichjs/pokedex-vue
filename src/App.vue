@@ -5,13 +5,13 @@
       <input
         class="search"
         type="text"
-        placeholder="Buscar pokemon"
+        placeholder="Buscar Pokemon"
         v-model="search"
       />
     </header>
 
     <div class="container-box">
-      <div v-for="poke in searchResult" :key="poke.url">
+      <div v-for="poke in searchPokemons" :key="poke.url">
         <Pokemon :name="poke.name" :url="poke.url" />
       </div>
     </div>
@@ -19,46 +19,45 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { api } from './services/api';
 import Pokemon from './components/Pokemon';
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-
+  components: {
+      Pokemon,
+  },
   data() {
     return {
       search: '',
     };
   },
-
   created() {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
-      .then((response) => {
-        console.log('Lista de pokemons concluído');
-        this.$store.state.pokemons = response.data.results;
-      });
+    api.get('/pokemon', {
+      params: {
+        limit: 151,
+        offset: 0
+      }
+    }).then(response => this.pokeMutation(response.data.results))
   },
-
-  components: {
-    Pokemon,
-  },
-
   computed: {
     ...mapGetters({
       pokemons: 'pokemons'
     }),
-    searchResult() {
-      if (this.search == '' || this.search == ' ') {
-        return this.$store.state.pokemons;
+    searchPokemons () {
+      if (this.search == '' || this.search =='  ') {
+        return this.pokemons;
       } else {
-        return this.$store.state.pokemons.filter((pokemon) =>
+        return this.pokemons.filter((pokemon) =>
           pokemon.name.match(this.search)
         );
       }
     },
   },
+  methods: {
+    ...mapMutations(['pokeMutation'])
+  }
 };
 </script>
 
