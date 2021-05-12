@@ -19,9 +19,8 @@
 </template>
 
 <script>
-import { api } from './services/api';
 import Pokemon from './components/Pokemon';
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'App',
@@ -34,30 +33,19 @@ export default {
     };
   },
   created() {
-    api.get('/pokemon', {
-      params: {
-        limit: 151,
-        offset: 0
-      }
-    }).then(response => this.pokeMutation(response.data.results))
+    this.getPokemons
   },
   computed: {
     ...mapGetters({
       pokemons: 'pokemons'
     }),
+    ...mapActions(['getPokemons']),
     searchPokemons () {
-      if (this.search == '' || this.search =='  ') {
-        return this.pokemons;
-      } else {
-        return this.pokemons.filter((pokemon) =>
-          pokemon.name.match(this.search)
-        );
-      }
-    },
+      return this.search == '' || this.search =='  '
+        ? this.pokemons
+        : this.pokemons.filter(pokemon => pokemon.name.match(this.search))
+    }
   },
-  methods: {
-    ...mapMutations(['pokeMutation'])
-  }
 };
 </script>
 

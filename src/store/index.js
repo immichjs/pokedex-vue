@@ -1,37 +1,30 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { api } from '../services/api'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     pokemons: [],
-    isFront: true,
-    currentImage: '',
-    pokemon: {
-      type: '',
-      front: '',
-      back: '',
-    },
   },
   getters: {
     pokemons: state => state.pokemons,
-    isFront: state => state.isFront,
-    currentImage: state => state.currentImage,
-    pokemon: state => state.pokemon
+  },
+  actions: {
+    async getPokemons ({ commit }) {
+      const response = await api.get('/pokemon', {
+        params: {
+          limit: 151,
+          offset: 0
+        }
+      }).then(response => response.data)
+
+      commit('SET_POKEMONS', response.results)
+    }
   },
   mutations: {
-    pokeMutation (state, payload) {
-      return state.pokemons = payload
-    },
-    changeImage () {
-      if (this.isFront) {
-        this.isFront = false;
-        this.currentImage = this.pokemon.back;
-      } else {
-        this.isFront = true;
-        this.currentImage = this.pokemon.front;
-      }
-    },
+    SET_POKEMONS: (state, payload) => state.pokemons = payload,
   }
 })
