@@ -18,3 +18,4 @@ Após esses passos é só entrar no navegador com ip gerado pra você pelo termi
 - VueJS
 - Tailwind CSS
 - Axios
+- Vuex
